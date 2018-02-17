@@ -54,7 +54,7 @@ public class UserController {
         return userRepository.getAllUsers();
     }
 
-    @GetMapping("/getInfo/{userId}")
+    @GetMapping("/getinfo/{userId}")
     public User getUserInfo(@PathVariable(value = "userId", required = false) Integer userId,
                             @RequestHeader("Authorization") String sessionId) {
         User byId = userRepository.getById(userId);
