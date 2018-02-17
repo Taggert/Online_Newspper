@@ -55,8 +55,13 @@ public class UserController {
     }
 
     @GetMapping("/getInfo/{userId}")
-    public User getUserInfo(@PathVariable(value = "userId") Integer userId) {
-        return userRepository.getById(userId);
+    public User getUserInfo(@PathVariable(value = "userId", required = false) Integer userId,
+                            @RequestHeader("Authorization") String sessionId) {
+        User byId = userRepository.getById(userId);
+        if(byId ==null){
+            return userRepository.getById(userSessionRepository.getBySessionId(sessionId).getUser().getId());
+        }
+        return byId;
     }
 
     @GetMapping("/promote/{username}")
