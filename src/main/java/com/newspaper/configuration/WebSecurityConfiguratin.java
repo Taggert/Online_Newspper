@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
         securedEnabled = true
 )
 @Configuration
-public class WebSecurityConfiguratin extends WebSecurityConfigurerAdapter{
+public class  WebSecurityConfiguratin extends WebSecurityConfigurerAdapter{
 
     @Bean
     public AuthentificationFilter authentificationFilter(){
